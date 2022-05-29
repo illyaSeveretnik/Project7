@@ -2,7 +2,14 @@
 #include <math.h>
 
 using namespace std;
-
+int stepin(int a, int b)
+{
+	for (int i = 1; i <= b; i++)
+	{
+		a *= a;
+	}
+	return a;
+}
 
 int fac(int g)
 {
@@ -13,32 +20,35 @@ int fac(int g)
 	return g;
 }
 
-int tfzad()
+double tfzad()
 {
-	double Y, n;
-	cout << " n =  ";
-	cin >> n;
-
-	if (typeid(n) == typeid(int) && n < 10)
+	double q;
+	int x, e;
+	cout << "x = ";
+	cin >> x;
+	cout << "e = ";
+	cin >> e;
+	if (x > 0)
 	{
-		Y = 0;
-		for (int i = 1; i <= n; i++)
+		q = 0;
+		for (int i = 1; i < x; i++)
 		{
-			Y += 1 / pow(i, 5);
+			q += stepin(-1, i) / fac(i);
 		}
 	}
-	else {
-		Y = 1;
-		for (int i = 1; i < 10; i++)
+	else
+	{
+		q = 1;
+		for (int i = 1; i < 5; i++)
 		{
-			Y *= (2 + (1 / fac(i)));
+			q *= (x * x - e) / i;
 		}
 	}
-	return Y;
+	return q;
 }
 int main()
 {
-	int res = tfzad();
+	double res = tfzad();
 	cout << " " << res;
 	return 0;
 }

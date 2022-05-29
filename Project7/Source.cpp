@@ -2,49 +2,35 @@
 #include <math.h>
 
 using namespace std;
-int stepin(int a, int b)
-{
-	for (int i = 1; i <= b; i++)
-	{
-		a *= a;
-	}
-	return a;
-}
 
-int fac(int g)
+int tfzad()
 {
-	for (int i = 1; i < g; i++)
-	{
-		g *= i;
-	}
-	return g;
-}
-
-double tfzad()
-{
-	double q;
-	int x, e;
-	cout << "x = ";
-	cin >> x;
+	double y, n, e, g, x;
+	cout << "n = ";
+	cin >> n;
 	cout << "e = ";
 	cin >> e;
-	if (x > 0)
+	cout << "g = ";
+	cin >> g;
+	cout << "x = ";
+	cin >> x;
+
+	if (n >= 2)
 	{
-		q = 0;
-		for (int i = 1; i < x; i++)
+		y = 1;
+		for (int i = 1; i <= n; i++)
 		{
-			q += stepin(-1, i) / fac(i);
+			y *= pow(e, i);
 		}
 	}
-	else
-	{
-		q = 1;
-		for (int i = 1; i < 5; i++)
+	else {
+		y = 0;
+		for (int i = 1; i < 4; i++)
 		{
-			q *= (x * x - e) / i;
+			y += (1 * g * (x / i) + 1 * g * (x / i));
 		}
 	}
-	return q;
+	return y;
 }
 int main()
 {
